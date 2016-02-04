@@ -1,0 +1,17 @@
+{
+  extends: "eslint:recommended",
+  "rules": {
+    "quotes": [1, "single"],
+    "max-len": [2, 80, 2],
+    "indent": [2, 2],
+    "eqeqeq": [2]
+  },
+  "ecmaFeatures": {
+    "modules": true,
+    "arrowFunctions": true,
+    "classes": true
+  },
+  "env": {
+    "es6": true
+  }
+}
