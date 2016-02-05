@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(
-<h1>Hello, world!</h1>,
-  document.getElementById('example')
-);
+function start() {
+  ReactDOM.render(
+    <div>Hello world!</div>,
+    document.getElementById('content')
+  );
+}
+
+$(document).ready(start);
