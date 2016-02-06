@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import TicTacToeBoard from './view/TicTacToeBoard.jsx';
+
 function start() {
   ReactDOM.render(
-    <div>Hello world!</div>,
+    <TicTacToeBoard/>,
     document.getElementById('content')
   );
 }
