@@ -1,7 +1,7 @@
 export default React.createClass({
   render: function() {
     return (
-      <div>
+      <div onClick={this.props.onPress}>
         {this.props.value}
       </div>
     );
