@@ -9,6 +9,11 @@ export default class {
     return this.getBestMove(this.AIMarker);
   }
 
+  setAI(marker) {
+    this.userMarker = this.AIMarker;
+    this.AIMarker = marker;
+  }
+
   getExtremum(scores, user) { 
     return (user === this.AIMarker) ? Math.max.apply(null, scores)
       : Math.min.apply(null, scores);
