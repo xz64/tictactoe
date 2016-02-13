@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Board from '../model/Board.js';
 import BoardView from '../view/Board.jsx';
+import UserChooser from '../view/UserChooser.jsx';
 import AI from '../model/AI.js';
 
 export default class {
@@ -13,9 +14,12 @@ export default class {
     this.AI = new AI(this.board, this.userMarker, this.AIMarker);
 
     ReactDOM.render(
-      <BoardView handleClick={this.handleClick.bind(this)}
-        initialState={{board: this.getNestedArrayBoard(), userMarker:
-          this.userMarker, AIMarker: this.AIMarker}}/>,
+      <div>
+        <UserChooser/>
+        <BoardView handleClick={this.handleClick.bind(this)}
+          initialState={{board: this.getNestedArrayBoard(), userMarker:
+            this.userMarker, AIMarker: this.AIMarker}}/>
+      </div>,
       target
     );
   }
