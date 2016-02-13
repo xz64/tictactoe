@@ -1,13 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import BoardController from './controller/BoardController.jsx';
 
-import Board from './view/Board.jsx';
-
-function start() {
-  ReactDOM.render(
-    <Board/>,
-    document.getElementById('content')
-  );
-}
-
-$(document).ready(start);
+$(document).ready(() => {
+  new BoardController(document.getElementById('content'));
+});

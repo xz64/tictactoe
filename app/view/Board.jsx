@@ -2,23 +2,23 @@ import BoardCell from './BoardCell.jsx';
 
 export default React.createClass({
   getInitialState: function() {
-    return {cells: [['x', '', ''],[ '', '', ''], ['', '', 'x']]};
+    return this.props.initialState;
   },
-  handleClick: function(i) {
-    alert("You pressed " + i);
+  handleClick: function(row, col) {
+    this.props.handleClick(this, row, col);
   },
   render: function() {
     return (
       <table>
       <tbody>
-        {this.state.cells.map(function(row, i) {
+        {this.state.board.map(function(row, i) {
           return (
-            <tr>
+            <tr key={i}>
               {row.map(function(cell, j) {
                 return (
-                  <td>
-                    <BoardCell key={3*i+j} value={this.state.cells[i][j]}
-                        onPress={this.handleClick.bind(this, 3*i+j)}/>
+                  <td key={3*i+j}>
+                    <BoardCell key={3*i+j} value={this.state.board[i][j]}
+                      handleClick={this.handleClick.bind(this, i, j)}/>
                   </td>
                 );
               }, this)}
