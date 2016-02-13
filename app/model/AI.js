@@ -10,8 +10,10 @@ export default class {
   }
 
   setAI(marker) {
-    this.userMarker = this.AIMarker;
-    this.AIMarker = marker;
+    if(this.AIMarker !== marker) {
+      this.userMarker = this.AIMarker;
+      this.AIMarker = marker;
+    }
   }
 
   getExtremum(scores, user) { 
