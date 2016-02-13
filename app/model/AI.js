@@ -42,6 +42,7 @@ export default class {
     }
 
     this.board.clearCell.call(this.board, cell);
+    this.board.clearWinner.call(this.board);
     return result;
   }
 

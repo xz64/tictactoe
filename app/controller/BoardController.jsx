@@ -22,6 +22,11 @@ export default class {
 
   handleClick(boardView, row, column) {
     var index = 3*row + column;
+    if(this.board.isGameComplete.call(this.board)) {
+      this.board.clear.call(this.board);
+      boardView.setState({board: this.getNestedArrayBoard()});
+      return;
+    }
     if(!this.board.isBlank.call(this.board, index)) { // cell already taken
       return;
     }

@@ -17,6 +17,17 @@ export default class {
   clearCell(index) {
     this.board[index] = null;
   }
+  
+  clear() {
+    for(var i = 0; i < this.board.length; i++) {
+      this.clearCell(i);
+    }
+    this.winner = null;
+  }
+
+  clearWinner() {
+    this.winner = null;
+  }
 
   isEqual(a, b) {
     return this.board[a] === this.board[b];
@@ -66,5 +77,11 @@ export default class {
       this.winner = this.NOBODY;
     }
     return isDraw;
+  }
+
+  isGameComplete() {
+    this.checkWinner();
+    this.checkDraw();
+    return this.winner !== null;
   }
 }
