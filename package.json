@@ -6,7 +6,8 @@
   "scripts": {
     "test": "babel-tape-runner app/**/*.test.js | faucet",
     "webpack": "webpack",
-    "webpack-dev-server": "webpack-dev-server --content-base dist/"
+    "webpack-dev-server": "webpack-dev-server --content-base dist/",
+    "eslint": "eslint app"
   },
   "author": "S K",
   "license": "ISC",
@@ -19,9 +20,11 @@
   },
   "devDependencies": {
     "babel-core": "^6.4.5",
+    "babel-eslint": "^4.1.8",
     "babel-loader": "^6.2.1",
     "babel-register": "^6.4.3",
     "babel-tape-runner": "^2.0.0",
+    "eslint": "^2.0.0",
     "faucet": "0.0.1",
     "jquery": "^2.2.0",
     "tape": "^4.4.0",
