@@ -18,6 +18,7 @@ export default React.createClass({
   render: function() {
     return (
       <div>
+        <h1>TicTacToe</h1>
         <UserChooser onChange={this.handleUserChange}
           defaultOption={this.state.userMarker}
           enabled={this.state.canChangeUser}/>
