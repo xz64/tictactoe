@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Board from '../model/Board.js';
-import BoardView from '../view/Board.jsx';
-import UserChooser from '../view/UserChooser.jsx';
 import AI from '../model/AI.js';
+import Game from '../view/Game.jsx';
 
 export default class {
   constructor(target) {
@@ -14,32 +13,35 @@ export default class {
     this.AI = new AI(this.board, this.userMarker, this.AIMarker);
 
     ReactDOM.render(
-      <div>
-        <UserChooser/>
-        <BoardView handleClick={this.handleClick.bind(this)}
-          initialState={{board: this.getNestedArrayBoard(), userMarker:
-            this.userMarker, AIMarker: this.AIMarker}}/>
-      </div>,
+      <Game handleClick={this.handleClick.bind(this)}
+        initialBoard={this.getNestedArrayBoard()}
+        canChangeUser={true}/>,
       target
     );
   }
 
-  handleClick(boardView, row, column) {
+  handleClick(gameView, row, column) {
     var index = 3*row + column;
     if(this.board.isGameComplete.call(this.board)) {
       this.board.clear.call(this.board);
-      boardView.setState({board: this.getNestedArrayBoard()});
+      gameView.setState({board: this.getNestedArrayBoard()});
+      gameView.setState({canChangeUser: true});
       return;
     }
     if(!this.board.isBlank.call(this.board, index)) { // cell already taken
       return;
     }
 
-    this.board.setCell(index, boardView.state.userMarker);
-    this.AIMarker = boardView.state.AIMarker;
+    this.board.setCell(index, gameView.state.userMarker);
+    gameView.setState({canChangeUser: false});
+    this.AIMarker = this.getOpponent(gameView.state.userMarker);
     this.AI.setAI(this.AIMarker);
     this.board.setCell(this.AI.getNextCell.call(this.AI), this.AIMarker);
-    boardView.setState({board: this.getNestedArrayBoard()});
+    gameView.setState({board: this.getNestedArrayBoard()});
+  }
+
+  getOpponent(user) {
+    return user === 'o' ? 'x' : 'o';
   }
 
   getNestedArrayBoard() {

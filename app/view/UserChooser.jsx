@@ -1,25 +1,24 @@
 export default React.createClass({
   getInitialState: function() {
-    return {userMarker: 'o', AIMarker: 'x'};
-  },
-  getOpponentMarker: function(marker) {
-    return marker === 'o' ? 'x' : 'o';
+    return {selectedOption: this.props.defaultOption};
   },
   handleChange: function(e) {
-    this.setState({
-      userMarker: e.currentTarget.value,
-      AIMarker: this.getOpponentMarker(e.currentTarget.value)
-    });
+    var destUser = e.currentTarget.value;
+    this.setState({selectedOption: destUser});
+    this.props.onChange(destUser);
   },
   render: function() {
     return (
       <div>
         <input type="radio" name="user" value="o" defaultChecked="true"
-          onChange={this.handleChange} checked={this.state.userMarker === 'o'}>
+          onChange={this.handleChange}
+          checked={this.state.selectedOption === 'o'}
+          disabled={!this.props.enabled}>
         </input>
         O
         <input type="radio" name="user" value="x" onChange={this.handleChange}
-          checked={this.state.userMarker === 'x'}>
+          checked={this.state.selectedOption === 'x'}
+          disabled={!this.props.enabled}>
         </input>
         X
       </div>
