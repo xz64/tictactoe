@@ -4,10 +4,18 @@ export default class {
       null];
     this.NOBODY = ''; // used to indicate a tie
     this.winner = null;
+    this.winningSpots = null;
   }
 
   isBlank(index) {
     return this.board[index] === null;
+  }
+
+  isWinningSpot(index) {
+    if(!this.winner) {
+      return false;
+    }
+    return this.winningSpots.indexOf(index) > -1;
   }
 
   setCell(index, value) {
@@ -22,11 +30,12 @@ export default class {
     for(var i = 0; i < this.board.length; i++) {
       this.clearCell(i);
     }
-    this.winner = null;
+    this.clearWinner();
   }
 
   clearWinner() {
     this.winner = null;
+    this.winningSpots = null;
   }
 
   isEqual(a, b) {
@@ -48,6 +57,7 @@ export default class {
       this.isEqual(b,c);
     if(winnerExists) {
       this.winner = this.board[a];
+      this.winningSpots = [a, b, c];
     }
     return winnerExists;
   }

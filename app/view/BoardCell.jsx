@@ -1,8 +1,9 @@
 export default React.createClass({
   render: function() {
     return (
-      <div onClick={this.props.handleClick}>
-        {this.props.value ? this.props.value : '\u00a0'}
+      <div onClick={this.props.handleClick}
+        className={this.props.cell.highlight ? "highlight": ""}>
+        {this.props.cell.value ? this.props.cell.value : '\u00a0'}
       </div>
     );
   }

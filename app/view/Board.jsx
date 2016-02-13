@@ -14,7 +14,7 @@ export default React.createClass({
               {row.map(function(cell, j) {
                 return (
                   <td key={3*i+j}>
-                    <BoardCell key={3*i+j} value={this.props.board[i][j]}
+                    <BoardCell key={3*i+j} cell={this.props.board[i][j]}
                       handleClick={this.handleClick.bind(this, i, j)}/>
                   </td>
                 );
