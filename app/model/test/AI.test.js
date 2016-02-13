@@ -15,33 +15,33 @@ test('AI selects winning spot at the end', testNextStep(new Board([
   'x', 'o', 'x',
   'o', 'x', 'o',
   'o', 'x', null
- ]), 8)
+]), 8)
 );
 
 test('AI will pick the only empty cell remaining', testNextStep(new Board([
   'x', 'o', 'x',
   'o', null, 'o',
   'o', 'x', 'o'
- ]), 4)
+]), 4)
 );
 
 test('AI selects winning spot on half-full board', testNextStep(new Board([
   'x', null, 'x',
   null, null, 'o',
   'o', null, 'o'
- ]), 1)
+]), 1)
 );
 
 test('AI prevents opponent from winning', testNextStep(new Board([
   'x', 'o', 'x',
   null, null, null,
   'o', null, 'o'
- ]), 7)
+]), 7)
 );
 
 test('AI strategizes based on minimax algorithm', testNextStep(new Board([
   'x', null, 'o',
   'o', null, 'o',
   'o', 'x', 'x'
- ]), 4)
+]), 4)
 );
