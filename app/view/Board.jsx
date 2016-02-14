@@ -1,3 +1,4 @@
+import React from 'react';
 import BoardCell from './BoardCell.jsx';
 
 export default React.createClass({

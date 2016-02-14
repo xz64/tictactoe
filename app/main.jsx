@@ -1,3 +1,5 @@
+/*global $*/
+/*global document*/
 import BoardController from './controller/BoardController.jsx';
 
 $(document).ready(() => {

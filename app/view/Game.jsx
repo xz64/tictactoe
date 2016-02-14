@@ -1,3 +1,4 @@
+import React from 'react';
 import UserChooser from './UserChooser.jsx';
 import Board from './Board.jsx';
 

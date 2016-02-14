@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default React.createClass({
   getInitialState: function() {
     return {selectedOption: this.props.defaultOption};
