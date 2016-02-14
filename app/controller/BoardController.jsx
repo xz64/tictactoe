@@ -13,11 +13,13 @@ export default class {
     this.RESET_DELAY = 3000;
     this.AI = new AI(this.board, this.userMarker, this.AIMarker);
     this.timer = null;
+    this.initialMessage = 'Select X or O, and click a spot to begin.';
 
     ReactDOM.render(
       <Game handleClick={this.handleClick.bind(this)}
         initialBoard={this.getNestedArrayBoard()}
-        canChangeUser={true}/>,
+        canChangeUser={true}
+        initialMessage={this.initialMessage}/>,
       target
     );
   }
@@ -26,6 +28,14 @@ export default class {
     this.board.clear.call(this.board);
     gameView.setState({board: this.getNestedArrayBoard()});
     gameView.setState({canChangeUser: true});
+    gameView.setState({message: this.initialMessage});
+  }
+
+  getEndGameMesage() {
+    var drawString = 'The game is a draw.';
+    var winnerString = ' wins.';
+    return (this.board.winner === this.board.NOBODY) ? drawString :
+      this.board.winner.toUpperCase() + winnerString;
   }
 
   handleClick(gameView, row, column) {
@@ -43,6 +53,7 @@ export default class {
 
     this.board.setCell(index, gameView.state.userMarker);
     gameView.setState({canChangeUser: false});
+    gameView.setState({message: 'Continue playing.'});
     this.AIMarker = this.getOpponent(gameView.state.userMarker);
     this.AI.setAI(this.AIMarker);
     this.board.setCell(this.AI.getNextCell.call(this.AI), this.AIMarker);
@@ -50,6 +61,7 @@ export default class {
     this.board.checkWinner();
     gameView.setState({board: this.getNestedArrayBoard()});
     if(this.board.isGameComplete.call(this.board)) {
+      gameView.setState({message: 'Game over. ' + this.getEndGameMesage()});
       this.timer =
         setTimeout(this.resetGame.bind(this, gameView), this.RESET_DELAY);
     }

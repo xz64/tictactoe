@@ -6,7 +6,9 @@ export default React.createClass({
     return {
       userMarker: 'o',
       board: this.props.initialBoard,
-      canChangeUser: this.props.canChangeUser
+      canChangeUser: this.props.canChangeUser,
+      message: this.props.initialMessage,
+      winner: null
     };
   },
   handleUserChange: function(user) {
@@ -23,6 +25,7 @@ export default React.createClass({
           defaultOption={this.state.userMarker}
           enabled={this.state.canChangeUser}/>
         <Board handleClick={this.handleClick} board={this.state.board}/>
+        <span className="message">{this.state.message}</span><br/>
       </div>
     );
   }

@@ -10,6 +10,7 @@ export default React.createClass({
   render: function() {
     return (
       <div>
+        Select your player:
         <input type="radio" name="user" value="o" defaultChecked="true"
           onChange={this.handleChange}
           checked={this.state.selectedOption === 'o'}
