@@ -1,16 +1,27 @@
 {
   "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "settings": {
+    "react": {
+      "pragma": "React"
+    }
+  },
   "extends": "eslint:recommended",
   "rules": {
     "quotes": [1, "single"],
     "max-len": [2, 80, 2],
     "indent": [2, 2],
-    "eqeqeq": [2]
+    "eqeqeq": [2],
+    "react/jsx-uses-react": [2],
+    "react/jsx-uses-vars": [2]
   },
   "ecmaFeatures": {
     "modules": true,
     "arrowFunctions": true,
-    "classes": true
+    "classes": true,
+    "jsx": true
   },
   "env": {
     "es6": true
