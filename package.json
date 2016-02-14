@@ -26,6 +26,7 @@
     "babel-register": "^6.4.3",
     "babel-tape-runner": "^2.0.0",
     "bootstrap-sass": "^3.3.6",
+    "classnames": "^2.2.3",
     "css-loader": "^0.23.1",
     "eslint": "^2.0.0",
     "eslint-plugin-react": "^3.16.1",
