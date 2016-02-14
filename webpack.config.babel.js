@@ -1,6 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
 import babelrc from './.babelrc';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 var development = process.env.NODE_ENV !== 'production';
 
@@ -18,6 +20,10 @@ class WebpackConfig {
 
     this.plugins = [
       new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+      new ExtractTextPlugin('styles.css'),
+      new HtmlWebpackPlugin({
+        title: 'TicTacToe'
+      })
     ];
 
     this.module = {
@@ -30,6 +36,11 @@ class WebpackConfig {
           query: {
             presets: babelrc.presets
           }
+        },
+        {
+          test: /\.css$/,
+          exclude: /node_modules/,
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
         }
       ]
     };
