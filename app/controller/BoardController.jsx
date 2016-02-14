@@ -10,7 +10,7 @@ export default class {
     this.board = new Board();
     this.userMarker = 'o';
     this.AIMarker = 'x';
-    this.RESET_DELAY = 2000;
+    this.RESET_DELAY = 3000;
     this.AI = new AI(this.board, this.userMarker, this.AIMarker);
     this.timer = null;
 
