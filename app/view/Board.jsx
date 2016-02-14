@@ -18,12 +18,13 @@ export default React.createClass({
             <tr key={i}>
               {row.map(function(cell, j) {
                 return (
-                  <td key={3*i+j} className={classNames('cell',
-                    {'clickable' : this.props.board[i][j].value ===
-                      null})}>
-                    <BoardCell key={3*i+j} cell={this.props.board[i][j]}
-                      handleClick={this.handleClick.bind(this, i, j)}/>
-                  </td>
+                  <BoardCell key={3*i+j}
+                    classes={classNames('cell',
+                      {'clickable' : this.props.board[i][j].value === null},
+                      {'highlight' : this.props.board[i][j].highlight}
+                    )}
+                    cell={this.props.board[i][j]}
+                    handleClick={this.handleClick.bind(this, i, j)}/>
                 );
               }, this)}
             </tr>
