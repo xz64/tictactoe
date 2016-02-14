@@ -38,9 +38,24 @@ class WebpackConfig {
           }
         },
         {
-          test: /\.css$/,
+          test: /\.s?css$/,
           exclude: /node_modules/,
-          loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+          loader: ExtractTextPlugin.extract('style-loader',
+            'css-loader!sass-loader')
+        },
+        {
+          test: /\.(woff2?|svg)$/,
+          loader: 'url?limit=10000',
+          query: {
+            name: '[name].[ext]'
+          }
+        },
+        {
+          test: /\.(ttf|eot)$/,
+          loader: 'file',
+          query: {
+            name: '[name].[ext]'
+          }
         }
       ]
     };

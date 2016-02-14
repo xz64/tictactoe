@@ -2,7 +2,7 @@
 /*global document*/
 import GameController from './controller/GameController.jsx';
 
-require('../styles/style.css');
+require('../styles/main.scss');
 
 $(document).ready(() => {
   $('body').append('<div id="content"/>');
