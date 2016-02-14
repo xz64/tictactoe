@@ -1,7 +1,7 @@
 /*global $*/
 /*global document*/
-import BoardController from './controller/BoardController.jsx';
+import GameController from './controller/GameController.jsx';
 
 $(document).ready(() => {
-  new BoardController(document.getElementById('content'));
+  new GameController(document.getElementById('content'));
 });
