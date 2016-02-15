@@ -9,8 +9,8 @@ export default React.createClass({
     this.setState({selectedOption: destUser});
     this.props.onChange(destUser);
   },
-  render: function() {
-    return (
+  getRenderable: function() {
+    return this.props.enabled ? (
       <div>
         Play as:{'  '}
         <label className="radio-inline">
@@ -29,6 +29,13 @@ export default React.createClass({
         X
         </label>
       </div>
+    ) : (
+      <div>
+        Playing as {this.state.selectedOption.toUpperCase()}.
+      </div>
     );
+  },
+  render: function() {
+    return this.getRenderable();
   }
 });
