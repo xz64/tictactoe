@@ -15,7 +15,7 @@ export default React.createClass({
       <tbody>
         {this.props.board.map(function(row, i) {
           return (
-            <tr key={i}>
+            <tr key={i} className="cellrow">
               {row.map(function(cell, j) {
                 return (
                   <BoardCell key={3*i+j}

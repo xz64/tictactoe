@@ -2,9 +2,26 @@
   min-width: 100px;
   height: 100px;
   text-align: center;
-  border: 1px solid black;
   font-size: 50px;
   font-family: helvetica;
+  border: 2px solid $gray-darker;
+}
+
+.cell:first-child {
+  border-left: 0;
+  border-top: 0;
+}
+
+.cell:last-child {
+  border-right: 0;
+}
+
+.cellrow:first-child > .cell {
+  border-top: 0;
+}
+
+.cellrow:last-child > .cell {
+  border-bottom: 0;
 }
 
 .cell:hover {
@@ -18,5 +35,5 @@
 
 .cell.highlight {
   color: $gray-darker;
-  background-color: $gray-lighter;
+  background-color: $gray-light;
 }
