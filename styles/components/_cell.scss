@@ -5,6 +5,7 @@
   font-size: 50px;
   font-family: helvetica;
   border: 2px solid $gray-darker;
+  user-select: none;
 }
 
 .cell:first-child {

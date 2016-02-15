@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import babelrc from './.babelrc';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import autoprefixer from 'autoprefixer';
 
 var development = process.env.NODE_ENV !== 'production';
 
@@ -41,7 +42,7 @@ class WebpackConfig {
           test: /\.s?css$/,
           exclude: /node_modules/,
           loader: ExtractTextPlugin.extract('style-loader',
-            'css-loader!sass-loader')
+            'css-loader!postcss-loader!sass-loader')
         },
         {
           test: /\.(woff2?|svg)$/,
@@ -58,6 +59,10 @@ class WebpackConfig {
           }
         }
       ]
+    };
+
+    this.postcss = function() {
+      return [autoprefixer];
     };
 
     this.resolve = {
