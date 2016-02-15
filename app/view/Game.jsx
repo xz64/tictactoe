@@ -25,9 +25,7 @@ export default React.createClass({
         <UserChooser onChange={this.handleUserChange}
           defaultOption={this.state.userMarker}
           enabled={this.state.canChangeUser}/>
-        <br/>
         <Board handleClick={this.handleClick} board={this.state.board}/>
-        <br/>
         <span className="message">{this.state.message}</span><br/>
       </div>
     );
