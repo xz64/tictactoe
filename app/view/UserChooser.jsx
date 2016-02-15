@@ -12,18 +12,22 @@ export default React.createClass({
   render: function() {
     return (
       <div>
-        Select your player:
+        Play as:{'  '}
+        <label className="radio-inline">
         <input type="radio" name="user" value="o" defaultChecked="true"
           onChange={this.handleChange}
           checked={this.state.selectedOption === 'o'}
           disabled={!this.props.enabled}>
         </input>
         O
+        </label>
+        <label className="radio-inline">
         <input type="radio" name="user" value="x" onChange={this.handleChange}
           checked={this.state.selectedOption === 'x'}
           disabled={!this.props.enabled}>
         </input>
         X
+        </label>
       </div>
     );
   }
